@@ -8,8 +8,6 @@
 ?><!DOCTYPE HTML>
 <html <?php language_attributes(); ?>>
 <head>
-<head profile="<?php get_profile_uri(); ?>">
-
 	<title>Remembering Dr. Millican (1906-2010)</title>
 
 	<meta charset="<?php bloginfo('charset'); ?>">
