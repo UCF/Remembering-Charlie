@@ -10,7 +10,7 @@
 <head>
 <head profile="<?php get_profile_uri(); ?>">
 
-	<title><?php semantic_title(); ?></title>
+	<title>Remembering Dr. Millican (1906-2010)</title>
 
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="description" content="<?php bloginfo( 'description' ) ?>" />
@@ -61,39 +61,10 @@
 		
 		<!-- Header -->
 		<div class="span-24 last" id="header">
-			<div class="span-10">
-				<h1><a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'name' ) ?></a></h1>
-			</div>
-			<div class="span-14 last">
-				
-				
-				<?php
-					/*
-					$menu_pages = array(
-						get_page_by_title('Academics'),
-						get_page_by_title('Visit UCF'),
-						get_page_by_title('Cost and Aid'),
-						get_page_by_title('Why UCF?'),
-						get_page_by_title('Media'),
-						get_page_by_title('Contact Us'),
-					);
-					$menu_pages = array_map(
-						create_function('$p', 'return $p->ID;'),
-						$menu_pages
-					);
-					$menu_out = wp_page_menu('echo=0&include='.implode(',', $menu_pages));
-					// regex matches last element of list: <li..><..></li></ul>
-					// all the negated character groups are required to fight regex greediness
-					$menu_out = preg_replace('/<li[^>]*>([^<]*<[^>]+>[^<]+<[^>]+>)<\/li><\/ul>/', '<li class="last">$1</ul>', $menu_out);
-					$menu_out = str_replace(' and ', ' &amp; ', $menu_out);
-					$menu_out = str_replace('Contact Us', 'Contact', $menu_out);
-					echo $menu_out;
-					*/
-				?>
-				
-			</div>
+			<h1><a href="<?php bloginfo( 'url' ); ?>">Remembering Dr. Millican <span>(1906-2010)</span></a> <span id="first-pres">UCF&rsquo;s first president : 1965-1978</span></h1>
 		</div><!-- /header -->
 		
 		<!--BEGIN content container -->
 		<div class="span-24 last">
 		
+		<img src="<?php echo IMAGES . '/Dr-Millican.png'; ?>" alt="Dr. Millican">
