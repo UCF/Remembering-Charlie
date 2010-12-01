@@ -348,12 +348,13 @@ function semantic_comments( $classes = array() ) {
 	// Show commenter's capabilities
 	if ( $comment->user_id > 0 && $user = get_userdata( $comment->user_id ) ) {
 		$capabilities = $user->{$wpdb->prefix . 'capabilities'}; // hat tip to Justin Tadlock http://www.themehybrid.com
-		
-		if ( array_key_exists( 'administrator', $capabilities ) ) $classes[] = 'administrator administrator-' . $user->user_login;
-		elseif ( array_key_exists( 'editor', $capabilities ) ) $classes[] = 'editor editor-' . $user->user_login;
-		elseif ( array_key_exists( 'author', $capabilities ) ) $classes[] = 'author author-' . $user->user_login;
-		elseif ( array_key_exists( 'contributor', $capabilities ) ) $classes[] = 'contributor contributor-' . $user->user_login;
-		elseif ( array_key_exists( 'subscriber', $capabilities ) ) $classes[] = 'subscriber subscriber-' . $user->user_login;
+		if ($capabilities != null){
+			if ( array_key_exists( 'administrator', $capabilities ) ) $classes[] = 'administrator administrator-' . $user->user_login;
+			elseif ( array_key_exists( 'editor', $capabilities ) ) $classes[] = 'editor editor-' . $user->user_login;
+			elseif ( array_key_exists( 'author', $capabilities ) ) $classes[] = 'author author-' . $user->user_login;
+			elseif ( array_key_exists( 'contributor', $capabilities ) ) $classes[] = 'contributor contributor-' . $user->user_login;
+			elseif ( array_key_exists( 'subscriber', $capabilities ) ) $classes[] = 'subscriber subscriber-' . $user->user_login;
+		}
 		
 		// For comment authors who are the author of the post
 		if ( $post = get_post( $post_id ) )
