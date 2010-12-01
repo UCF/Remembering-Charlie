@@ -7,40 +7,41 @@
  */
 
 get_header();
+$comments_page = isset($_GET['comments']);
 ?>
 	<div class="span-24 last"><!-- col wrap -->
 		
-		<h2 class="entry-title"><?php the_title(); ?></h2>
-		
-		<?php if ( have_posts() ) : ?>
-		<?php while ( have_posts() ) : the_post(); ?>
-		<!--BEGIN .hentry-->
-		<div id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?>">
-                  <?php if ( current_user_can( 'edit_post', $post->ID ) ): ?>
-                  <!--BEGIN .entry-meta .entry-header-->
-			<div class="entry-meta entry-header">
-				<?php edit_post_link( 'edit', '<span class="edit-post">[', ']</span>' ); ?>
-			<!--END .entry-meta .entry-header-->
-                  </div>
-                  <?php endif; ?>
+		<?php if(!$comments_page):?>
+		<div class="span-14">
+			<h2 class="entry-title"><?php the_title(); ?></h2>
+			
+			<!--BEGIN .hentry-->
+			<div id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?>">
+	                  <?php if ( current_user_can( 'edit_post', $post->ID ) ): ?>
+	                  <!--BEGIN .entry-meta .entry-header-->
+				<div class="entry-meta entry-header">
+					<?php edit_post_link( 'edit', '<span class="edit-post">[', ']</span>' ); ?>
+				<!--END .entry-meta .entry-header-->
+	                  </div>
+	                  <?php endif; ?>
 
-			<!--BEGIN .entry-content .article-->
-			<div class="entry-content article">
-				<?php the_content(); ?>
-			<!--END .entry-content .article-->
+				<!--BEGIN .entry-content .article-->
+				<div class="entry-content article">
+					<?php the_content(); ?>
+				<!--END .entry-content .article-->
+				</div>
+			<!--END .hentry-->
 			</div>
-		<!--END .hentry-->
 		</div>
+		<?php endif;?>
 		
-		<div class="comments">
+		<div class="comments <?php if($comments_page):?>span-24<?php else:?>span-10<?php endif;?> last">
 			<?php
 				$comments_title = 'Post a message';
 			?>
 			<h3><?=$comments_title?></h3>
 			<?php comments_template( '', true ); ?>
 		</div>
-
-		<?php endwhile; endif; ?>
 		
 	</div><!-- /col wrap -->
 

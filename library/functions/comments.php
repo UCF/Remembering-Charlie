@@ -267,10 +267,6 @@ function framework_comments_callback( $comment, $args, $depth ) {
  * @todo needs filter
  */
 function framework_comments_endcallback(){
-	$tag = apply_filters( 'framework_comments_list_tag', (string) 'li' ); // Available filter: framework_comments_list_tag
-	echo "<!--END .comment-->\n";
-	echo "</". $tag .">\n";
-	do_action( 'framework_hook_inside_comments_loop' ); // Available action: framework_hook_inside_comments_loop
 }
 
 /**

@@ -17,29 +17,26 @@ if ( post_password_required() ) { ?>
 <?php if ( have_comments() ) : // If comments exist for this entry, continue ?>
 <!--BEGIN #comments-->
 <div id="comments">
-    
+
+<?php 
+	$comments_page = isset($_GET['comments']);
+	$limit = ($comments_page) ? -1 : 50;
+?>
 <?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>
     <!--BEGIN .comment-list-->
     <ol class="comment-list">
 		<?php wp_list_comments(array(
+		'per_page' => $limit,
         'type' => 'comment',
         'callback' => 'framework_comments_callback',
         'end-callback' => 'framework_comments_endcallback' )); ?>
     <!--END .comment-list-->
     </ol>
 <?php } ?>
-
-<?php if ( ! empty( $comments_by_type['pings'] ) ) { ?>
-	<?php framework_discussion_title( 'pings' ); ?>
-	<!--BEGIN .pings-list-->
-    <ol class="pings-list">
-		<?php wp_list_comments(array(
-        'type' => 'pings',
-        'callback' => 'framework_pings_callback',
-        'end-callback' => 'framework_pings_endcallback' )); ?>
-	<!--END .pings-list-->
-    </ol>
-<?php } ?>
+<?php $count = framework_count('comment', false);?>
+<?php if ($count > $limit and !$comments_page):?>
+	<li><a href="?comments">All Messages</a></li>
+<?php endif;?>
 
 <!--END #comments-->
 </div>
