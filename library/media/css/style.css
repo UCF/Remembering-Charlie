@@ -21,7 +21,8 @@ a img{border:0}
 #main_body a{color:#600; text-decoration:none; border-bottom:#CCC}
 #main_body a:hover{color:#e50606; text-decoration:none; border-bottom:#e50606}
 
-#footer {clear:both; font-family:Arial,Helvetica,sans-serif; padding:20px 0; border-top:1px dotted black; margin-top:30px; }
+#footer {clear:both; font-family:Arial,Helvetica,sans-serif; padding:20px 0; border-top:1px dotted black; margin-top:30px; position:relative; }
+.ie #footer { padding-top:10px; }
 #footer a { width:148px; height:82px; display:block; overflow:hidden; background:url('img/ucf.png') no-repeat; text-indent:-5000px; }
 
 
