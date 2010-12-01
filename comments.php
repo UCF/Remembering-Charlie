@@ -44,7 +44,7 @@ if ( post_password_required() ) { ?>
 
 <?php if ( comments_open() ) : // show comment form ?>
 <!--BEGIN #respond-->
-<div id="respond">
+<div id="respond" <?php if(!$count):?>class="nocomments"<?php endif;?>>
 
     <div class="cancel-comment-reply"><?php cancel_comment_reply_link( 'Cancel Reply' ); ?></div>
     
