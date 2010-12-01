@@ -38,6 +38,7 @@ a:hover { cursor:pointer; color:#C30202; }
 .borderless { border:0; }
 .hidden { display:none; }
 .orange { color:#ff7700; }
+.centerpiece{margin: 0 0 30px 0;}
 
 
 h1 { font-family:georgia, serif; font-size:2em; }
@@ -149,7 +150,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /******************************************************************************\
 	Comment Styles
 \******************************************************************************/
+#leave-a-reply{font-family: "Georgia", serif; border-top: 1px dotted #000; padding-top: 30px;}
+#form-section-actions{margin: 15px 0 0 0;}
+#comment{height: 90px; width: 95%;}
 .comment-list{list-style-type: none; padding: 0; margin: 0;}
-.comment-list li{margin-bottom: 50px;}
+.comment-list li{margin-bottom: 25px;}
 .comment-list .comment-content{font-size: 16px; font-family: Georgia, serif; font-style: italic;}
 .comment-list .comment-author{text-align: right;}

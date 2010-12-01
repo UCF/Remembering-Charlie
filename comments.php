@@ -20,7 +20,7 @@ if ( post_password_required() ) { ?>
 
 <?php 
 	$comments_page = isset($_GET['comments']);
-	$limit = ($comments_page) ? -1 : 50;
+	$limit = ($comments_page) ? -1 : 15;
 ?>
 <?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>
     <!--BEGIN .comment-list-->
@@ -31,12 +31,12 @@ if ( post_password_required() ) { ?>
         'callback' => 'framework_comments_callback',
         'end-callback' => 'framework_comments_endcallback' )); ?>
     <!--END .comment-list-->
+	<?php $count = framework_count('comment', false);?>
+	<?php if ($count > $limit and !$comments_page):?>
+		<li><a href="?comments">All Messages</a></li>
+	<?php endif;?>
     </ol>
 <?php } ?>
-<?php $count = framework_count('comment', false);?>
-<?php if ($count > $limit and !$comments_page):?>
-	<li><a href="?comments">All Messages</a></li>
-<?php endif;?>
 
 <!--END #comments-->
 </div>
@@ -48,7 +48,7 @@ if ( post_password_required() ) { ?>
 
     <div class="cancel-comment-reply"><?php cancel_comment_reply_link( 'Cancel Reply' ); ?></div>
     
-    <h3 id="leave-a-reply"><?php comment_form_title( 'Leave a message', 'Leave a message to %s' ); ?></h3> 
+    <h3 id="leave-a-reply"><?php comment_form_title( 'Post a Message', 'Leave a message to %s' ); ?></h3> 
     
     <?php if ( get_option( 'comment_registration' ) && !is_user_logged_in() ) : ?>
 	<p id="login-req" class="alert">You must be <a href="<?php echo get_option( 'siteurl' ); ?>/wp-login.php?redirect_to=<?php echo urlencode( get_permalink() ); ?>">logged in</a> to post a comment.</p>
@@ -58,11 +58,17 @@ if ( post_password_required() ) { ?>
 	<form id="comment-form" method="post" action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php">
 		
 		<?php if ( is_user_logged_in() ) : global $current_user; // If user is logged-in, then show them their identity ?>
+		
+		<!--BEGIN #form-section-comment-->
+        <div id="form-section-comment" class="form-section">
+        	<textarea name="comment" id="comment" tabindex="4" rows="10" cols="65"></textarea>
+        <!--END #form-section-comment-->
+        </div>
         
         <!--BEGIN #form-section-author-->
         <div id="form-section-author" class="form-section">
             <input name="author" id="author" type="text" value="<?php echo $current_user->user_nicename; ?>" tabindex="1" <?php if ( $req ) echo "aria-required='true'"; ?> />
-            <label for="author"<?php if ( $req ) echo ' class="required"'; ?>>Name</label>
+            <label for="author"<?php if ( $req ) echo ' class="required"'; ?>>Your Name</label>
         <!--END #form-section-author-->
         </div>
 		
@@ -71,21 +77,15 @@ if ( post_password_required() ) { ?>
         <!--BEGIN #form-section-author-->
         <div id="form-section-author" class="form-section">
             <input name="author" id="author" type="text" value="<?php echo $comment_author; ?>" tabindex="1" <?php if ( $req ) echo "aria-required='true'"; ?> />
-            <label for="author"<?php if ( $req ) echo ' class="required"'; ?>>Name</label>
+            <label for="author"<?php if ( $req ) echo ' class="required"'; ?>>Your Name</label>
         <!--END #form-section-author-->
         </div>
         
 		<?php endif; // if ( is_user_logged_in() ) ?>
-		
-		<!--BEGIN #form-section-comment-->
-        <div id="form-section-comment" class="form-section">
-        	<textarea name="comment" id="comment" tabindex="4" rows="10" cols="65"></textarea>
-        <!--END #form-section-comment-->
-        </div>
         
         <!--BEGIN #form-section-actions-->
         <div id="form-section-actions" class="form-section">
-			<button name="submit" id="submit" type="submit" tabindex="5">Submit Comment</button>
+			<button name="submit" id="submit" type="submit" tabindex="5">Post your comment</button>
 			<?php comment_id_fields(); ?>
         <!--END #form-section-actions-->
         </div>

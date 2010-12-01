@@ -33,10 +33,14 @@ $comments_page = isset($_GET['comments']);
 			<!--END .hentry-->
 			</div>
 		</div>
+		<?php else:?>
+		<div class="span-8">
+			<img src="<?php echo IMAGES . '/Dr-Millican-single.png'; ?>" alt="Dr. Millican">
+		</div>
 		<?php endif;?>
 		
-		<div class="comments prepend-1 <?php if($comments_page):?>span-23<?php else:?>span-9<?php endif;?> last">
-			<?php $comments_title = 'Post a message';?>
+		<div class="comments <?php if($comments_page):?>span-14 prepend-1 append-1<?php else:?>prepend-1 span-9<?php endif;?> last">
+			<?php $comments_title = 'Remembering Charlie';?>
 			<h2 class="comments-title"><?=$comments_title?></h2>
 			<?php comments_template( '', true ); ?>
 		</div>

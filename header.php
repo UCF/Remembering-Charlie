@@ -65,4 +65,7 @@
 		<!--BEGIN content container -->
 		<div class="span-24 last">
 		
-		<img src="<?php echo IMAGES . '/Dr-Millican.png'; ?>" alt="Dr. Millican">
+		<?php $comments_page = isset($_GET['comments']);?>
+		<?php if(!$comments_page):?>
+		<img class="centerpiece" src="<?php echo IMAGES . '/Dr-Millican.png'; ?>" alt="Dr. Millican">
+		<?php endif;?>
