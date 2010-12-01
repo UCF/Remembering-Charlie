@@ -20,7 +20,7 @@ if ( post_password_required() ) { ?>
 
 <?php 
 	$comments_page = isset($_GET['comments']);
-	$limit = ($comments_page) ? -1 : 15;
+	$limit = ($comments_page) ? -1 : 20;
 ?>
 <?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>
     <!--BEGIN .comment-list-->
@@ -57,13 +57,13 @@ if ( post_password_required() ) { ?>
     <!--BEGIN #comment-form-->
 	<form id="comment-form" method="post" action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php">
 		
-		<?php if ( is_user_logged_in() ) : global $current_user; // If user is logged-in, then show them their identity ?>
-		
 		<!--BEGIN #form-section-comment-->
         <div id="form-section-comment" class="form-section">
         	<textarea name="comment" id="comment" tabindex="4" rows="10" cols="65"></textarea>
         <!--END #form-section-comment-->
         </div>
+		
+		<?php if ( is_user_logged_in() ) : global $current_user; // If user is logged-in, then show them their identity ?>
         
         <!--BEGIN #form-section-author-->
         <div id="form-section-author" class="form-section">
