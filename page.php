@@ -31,7 +31,14 @@ get_header();
 			</div>
 		<!--END .hentry-->
 		</div>
-		<?php comments_template( '', true ); ?>
+		
+		<div class="comments">
+			<?php
+				$comments_title = 'Post a message';
+			?>
+			<h3><?=$comments_title?></h3>
+			<?php comments_template( '', true ); ?>
+		</div>
 
 		<?php endwhile; endif; ?>
 		
