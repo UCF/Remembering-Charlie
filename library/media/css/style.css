@@ -153,7 +153,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 #leave-a-reply{font-family: "Georgia", serif; border-top: 1px dotted #000; padding-top: 30px;}
 #form-section-actions{margin: 15px 0 0 0;}
 #comment{height: 90px; width: 95%;}
-.comment-list{list-style-type: none; padding: 0; margin: 0;}
+.comment-list{list-style-type: none; padding: 0; margin: 30px 0 0 0;}
 .comment-list li{margin-bottom: 25px;}
 .comment-list .comment-content{font-size: 16px; font-family: Georgia, serif; font-style: italic;}
 .comment-list .comment-author{text-align: right;}
