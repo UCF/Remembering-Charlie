@@ -68,18 +68,32 @@ if ( post_password_required() ) { ?>
         <!--BEGIN #form-section-author-->
         <div id="form-section-author" class="form-section">
             <input name="author" id="author" type="text" value="<?php echo $current_user->user_nicename; ?>" tabindex="1" <?php if ( $req ) echo "aria-required='true'"; ?> />
-            <label for="author"<?php if ( $req ) echo ' class="required"'; ?>>Your Name</label>
+            <label for="author"<?php if ( $req ) echo ' class="required"'; ?>>Name</label>
         <!--END #form-section-author-->
         </div>
+		
+		<!--BEGIN #form-section-email-->
+		<div id="form-section-email" class="form-section">
+		    <input name="email" id="email" type="text" value="<?php echo $comment_author_email; ?>" tabindex="2" <?php if ( $req ) echo "aria-required='true'"; ?> />
+		    <label for="email"<?php if ( $req ) echo ' class="required"'; ?>>Email</label>
+		<!--END #form-section-email-->
+		</div>
 		
 		<?php else : // If user isn't logged-in, ask them for their details ?>
         
         <!--BEGIN #form-section-author-->
         <div id="form-section-author" class="form-section">
             <input name="author" id="author" type="text" value="<?php echo $comment_author; ?>" tabindex="1" <?php if ( $req ) echo "aria-required='true'"; ?> />
-            <label for="author"<?php if ( $req ) echo ' class="required"'; ?>>Your Name</label>
+            <label for="author"<?php if ( $req ) echo ' class="required"'; ?>>Name</label>
         <!--END #form-section-author-->
         </div>
+		
+		<!--BEGIN #form-section-email-->
+		<div id="form-section-email" class="form-section">
+		    <input name="email" id="email" type="text" value="<?php echo $comment_author_email; ?>" tabindex="2" <?php if ( $req ) echo "aria-required='true'"; ?> />
+		    <label for="email"<?php if ( $req ) echo ' class="required"'; ?>>Email</label>
+		<!--END #form-section-email-->
+		</div>
         
 		<?php endif; // if ( is_user_logged_in() ) ?>
         
