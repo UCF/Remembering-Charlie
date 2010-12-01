@@ -19,8 +19,6 @@ if ( post_password_required() ) { ?>
 <div id="comments">
     
 <?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>
-	<?php framework_discussion_title( 'comment' ); ?>
-    <?php framework_discussion_rss(); ?>
     <!--BEGIN .comment-list-->
     <ol class="comment-list">
 		<?php wp_list_comments(array(

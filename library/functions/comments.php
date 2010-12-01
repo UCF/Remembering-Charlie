@@ -6,6 +6,7 @@
  * @subpackage Core
  */
 
+
 /**
  * framework_discussion_title()
  *
@@ -243,14 +244,18 @@ function framework_comment_navigation() {
  * @needsdoc
  */
 function framework_comments_callback( $comment, $args, $depth ) {	
-	$GLOBALS['comment'] = $comment;
+	$GLOBALS['comment']       = $comment;
 	$GLOBALS['comment_depth'] = $depth;
-	$tag = apply_filters( 'framework_comments_list_tag', (string) 'li' ); // Available filter: framework_comments_list_tag
 	?>
-    
-    <!--BEING .comment-->
-	<<?php echo $tag; ?> class="<?php semantic_comments(); ?>" id="comment-<?php echo comment_ID(); ?>">
-    	<?php framework_hook_comments(); ?>
+	
+	<li>
+		<div class="comment-content">
+			<?php comment_text()?>
+		</div>
+		<div class="comment-author">
+			<?php comment_author()?>
+		</div>
+	</li>
 	<?php
 }
 
