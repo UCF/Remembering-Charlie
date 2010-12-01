@@ -1,0 +1,71 @@
+<?php
+/**
+ * Template: Page.php
+ *
+ * @package WPFramework
+ * @subpackage Template
+ */
+
+get_header();
+?>
+			
+		<!-- homepage, show slideshow-->
+		<?php if(get_the_title() == "Home"):
+			$gallery = get_page_by_title("Homepage Images");
+			if($gallery): ?>
+			<div class="span-24 last">
+				<div id="slideshow">
+					<?php echo $gallery->post_content; ?>
+				</div>		
+			</div>
+		<?php endif; endif;  ?>
+	
+
+		<div class="span-24 last"><!-- col wrap -->
+			
+			<!-- Left col -->
+			<div class="span-18">
+					
+				<?php if ( have_posts() ) : ?>
+					<?php while ( have_posts() ) : the_post(); ?>
+					<!--BEGIN .hentry-->
+					<div id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?>">
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+	                    <?php if ( current_user_can( 'edit_post', $post->ID ) ): ?>
+	                    <!--BEGIN .entry-meta .entry-header-->
+						<div class="entry-meta entry-header">
+							<?php edit_post_link( 'edit', '<span class="edit-post">[', ']</span>' ); ?>
+						<!--END .entry-meta .entry-header-->
+	                    </div>
+	                    <?php endif; ?>
+
+						<!--BEGIN .entry-content .article-->
+						<div class="entry-content article">
+							<?php the_content(); ?>
+						<!--END .entry-content .article-->
+						</div>
+
+						<!-- Auto Discovery Trackbacks
+						<?php trackback_rdf(); ?>
+						-->
+					<!--END .hentry-->
+					</div>
+					<?php comments_template( '', true ); ?>
+
+				<?php endwhile; endif; ?>
+			
+			</div><!-- /left col -->
+
+			<!-- right col -->
+			<div class="span-6 last">
+				<div class="pad-l">
+				
+					<?php get_sidebar(); ?>
+				
+				</div><!-- col wrapper -->
+			</div><!-- /right col -->
+	
+		
+		</div><!-- /col wrap -->
+
+<?php get_footer(); ?>

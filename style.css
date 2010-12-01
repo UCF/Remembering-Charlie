@@ -1,0 +1,22 @@
+/*
+Theme Name:		Millican Remembrance
+Theme URI: 		http://umark.ucf.edu/
+Version: 		0.0
+Description: 	Built by <a href="http://umark.ucf.edu/">University Marketing</a>
+Author: 		Web Communications at UCF
+
+Fall 2010
+
+*/
+
+/* These empty css selectors are temporarily here for compatiability with the WordPress theme repository checklist. */
+.aligncenter {} .alignleft {} .alignright {} .wp-caption {} .wp-caption-text {}
+
+
+html { background:white; }
+body { background:url("library/media/css/img/gradient.png") repeat-x top left #fff; }
+
+
+/* Homepage */
+.home .entry-title { display:none; }
+.nil { margin:0; padding:0; }

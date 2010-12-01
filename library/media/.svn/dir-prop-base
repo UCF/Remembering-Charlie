@@ -1,0 +1,6 @@
+K 13
+svn:externals
+V 91
+css https://svn.smca.ucf.edu/svn/uawebsite/trunk/AdmissionsMVC/AdmissionsMVC/static/style/
+
+END

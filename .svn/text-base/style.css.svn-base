@@ -1,0 +1,40 @@
+/*
+Theme Name:		Undergraduate Admissions
+Theme URI: 		http://umark.ucf.edu/
+Version: 		0.0
+Description: 	Built by <a href="http://umark.ucf.edu/">University Marketing</a> for <a href="http://admissions.ucf.edu/">Undergraduate Admissions</a>.
+Author: 		Web Communications at UCF
+
+Fall 2010
+Started with WP Framework 0.2.4.10 - http://wpframework.com/
+Doug, Jared, Roger, Patrick... pajamas
+
+All style specific to WP should be here.  
+Styles pulled in through the header are shared assests.
+Any changes to library/css will also reflect upon the online app.
+
+*/
+
+/* These empty css selectors are temporarily here for compatiability with the WordPress theme repository checklist. */
+.aligncenter {} .alignleft {} .alignright {} .wp-caption {} .wp-caption-text {}
+
+
+html { background:black; }
+body { background:url("library/media/css/img/gradient.png") repeat-x top left #fff; }
+
+
+/* Homepage */
+.home .entry-title { display:none; }
+.nil { margin:0; padding:0; }
+
+.why-frame { margin:1.2em 0 .4em; }
+.why-float { float:left; margin-right:5px; }
+h2.ribbon { overflow:hidden; }
+#publications .pub { padding:0; margin:0; }
+
+
+#downloads { padding-top:10px; }
+#downloads p span { font-size:80%; display:block; }
+#downloads img { -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 6px; -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 6px; }
+#downloads ul { margin:0; padding:0; }
+#downloads li { list-style:none; width:260px; margin:0; padding:0 20px 0 0; float:left; }
