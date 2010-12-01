@@ -253,7 +253,7 @@ function framework_comments_callback( $comment, $args, $depth ) {
 			<?php comment_text()?>
 		</div>
 		<div class="comment-author">
-			<?php comment_author()?>
+			&mdash; <?php comment_author()?>
 		</div>
 	</li>
 	<?php

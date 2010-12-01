@@ -35,7 +35,7 @@ $comments_page = isset($_GET['comments']);
 		</div>
 		<?php endif;?>
 		
-		<div class="comments <?php if($comments_page):?>span-24<?php else:?>span-10<?php endif;?> last">
+		<div class="comments prepend-1 <?php if($comments_page):?>span-23<?php else:?>span-9<?php endif;?> last">
 			<?php
 				$comments_title = 'Post a message';
 			?>
