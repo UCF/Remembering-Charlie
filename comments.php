@@ -61,8 +61,6 @@ if ( post_password_required() ) { ?>
 	<form id="comment-form" method="post" action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php">
 		
 		<?php if ( is_user_logged_in() ) : global $current_user; // If user is logged-in, then show them their identity ?>
-
-        <p>Logged in as <a href="<?php echo get_option( 'siteurl' ); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Log out of this account">Log out &raquo;</a></p>
         
         <!--BEGIN #form-section-author-->
         <div id="form-section-author" class="form-section">
