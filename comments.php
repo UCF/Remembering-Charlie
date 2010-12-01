@@ -27,6 +27,7 @@ if ( post_password_required() ) { ?>
     <ol class="comment-list">
 		<?php wp_list_comments(array(
 		'per_page' => $limit,
+		'reverse_top_level' => True,
         'type' => 'comment',
         'callback' => 'framework_comments_callback',
         'end-callback' => 'framework_comments_endcallback' )); ?>
