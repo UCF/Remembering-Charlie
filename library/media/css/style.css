@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+/*  UCF Web Communications, Summer 2010*/
+
+html, body{padding:0; margin:0}
+html{background:url("img/gradient.png") repeat-x top left #fff}
+a img{border:0}
+
+.uppercase{text-transform:uppercase}
+
+.navigation_end {margin-bottom:-10px; clear:both}
+#navigation{margin:25px auto 0 auto; position:relative; left:5px; font-family:Georgia,serif; font-size:95%; width:802px; padding:0; list-style-type:none}
+#navigation li{float:left; margin:0 0 0 11px; padding:0 0 0 13px; background-image:url(img/bullet.png); background-position:center left; background-repeat:no-repeat}
+#navigation li.first{margin-left:0; padding-left:0; background-image:none}
+#navigation #nav_apply_now{text-indent:-9999px; background-image:none}
+#navigation #nav_apply_now a{cursor:pointer; display:block; overflow:hidden; background-position:top center; background-repeat:no-repeat; background-image:url(img/apply_now.png); width:93px; height:24px; position:relative; left:-5px; top:-2px}
+
+#navigation li a{color:#262626; text-decoration:none}
+#navigation li a:hover{color:#959491}
+
+#main_body a{color:#600; text-decoration:none; border-bottom:#CCC}
+#main_body a:hover{color:#e50606; text-decoration:none; border-bottom:#e50606}
+
+#footer {clear:both; font-family:Arial,Helvetica,sans-serif; padding:20px 0; border-top:1px dotted black; margin-top:30px; position:relative; }
+.ie #footer { padding-top:10px; }
+#footer a { width:148px; height:82px; display:block; overflow:hidden; background:url('img/ucf.png') no-repeat; text-indent:-5000px; }
+
+
+/******************************************************************************\
+    General Styles
+\******************************************************************************/
+body { font-family: "Trebuchet MS", sans-serif; font-size:90%; text-align:left; }
+#wrap { width:950px; padding:24px 12px 32px; margin:0 auto; color:#313130; }
+abbr {border:1px dash black; outline:0; }
+a { color:#990000; }
+a:hover { cursor:pointer; color:#C30202; }
+.inline { display:inline; }
+.borderless { border:0; }
+.hidden { display:none; }
+.orange { color:#ff7700; }
+.centerpiece{margin: 0 0 30px 0;}
+
+
+h1 { font-family:georgia, serif; font-size:2em; }
+h1 a {text-decoration:none; color:black; }
+h1 a:hover {color:black; }
+h2 { /*color: #FF7700;*/ color:#000; font-family: "Georgia", serif; font-size: 22px; margin: 0 0 .25em 0; padding:0 0 .25em 0; border-bottom: 1px dotted #000;}
+h3 { letter-spacing:.5px; font-size:1.15em; font-family: "Arial Black", arial, sans-serif; padding:.5em 0; margin:0; }
+h4 {font-weight:bold; font-size:1em; padding:.5em 0; margin:0; font-family:georgia; }
+
+.ribbon { background:url("img/white-triangle.png") no-repeat scroll left center #CC9900;
+		color:white; font-size:1em; font-weight:bold; height:40px; line-height:40px; margin-bottom:1.5em; padding:0;
+		padding-left:45px; }
+.ribbon a { color:white; text-decoration:none; border-bottom:1px dotted; }
+.ribbon a:hover { border-bottom:1px solid; }
+
+ul, ol { font-family:georgia; }
+li { line-height:120%; padding-bottom:1em; } 
+ul.checkboxes { margin-top:0; padding-top:0; padding-left:0px; }
+ul.checkboxes li {list-style:none; display:block; clear:both; padding:5px 0;  }
+p { font-family:georgia; padding-bottom:1em; margin-bottom:0; line-height:150%; }
+address { padding-left:2em; font-style:normal; font-family:georgia; }
+address a { color:black; text-decoration:none; border-bottom:1px dotted black; }
+
+.indent { padding-left:2em; }
+.indent ul { padding-left:1em; font-family:georgia; }
+.upfont { font-size:123%; }
+
+.plain{font-family: "Georgia"; list-style-type: none; padding: 0; margin: 0;}
+.plain li {}
+
+/******************************************************************************\
+    sans serif content
+\******************************************************************************/
+.sans { font-size:.9em; font-family:helvetica, sans-serif; padding:0 0 1em 1em; }
+.sans p { font-family:helvetica, sans-serif; padding-bottom:.5em; }
+.sans h3 { font-family:helvetica, sans-serif; font-weight:bold; }
+.sans h4 { font-family:helvetica, sans-serif; font-size:1em; padding-bottom:0;}
+figure img { -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 6px; -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 6px;  }
+.ie figure img { border:1px solid #CCC; }
+figure { padding:.5em 0 1.5em; }
+
+
+/******************************************************************************\
+    Block Styles
+\******************************************************************************/
+
+/* html5 elements */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+
+.frame { display:block; margin-bottom:1em; -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 6px; -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 6px; background-color: white; -moz-border-radius: 5px; -webkit-border-radius: 5x; border-radius:5px; padding:5px; position:relative; }
+.frame { -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 6px; }
+.ie .frame { border:1px solid #CCC; }
+
+
+.paper { margin-bottom:2em; background: url("img/paper-top.png") no-repeat center top transparent; font-size:.83em; font-family:helvetica, sans-serif; }
+.paper p { font-family:helvetica, sans-serif; line-height:170%; }
+.paper h3 {font-size:100%; }
+.paper .blue { color:#105d8a; font-family:georgia; font-size:1.6em; margin:0; padding:.1em 0 .25em; }
+.paper .wrap { background: url("img/paper-bottom.png") no-repeat center bottom transparent; padding:1em; }
+.paper ul { margin:0; padding:0; }
+.paper ol { padding-left:1.5em; }
+.paper li { margin:.5em 0 .5em 1.2em; padding:0; line-height:130%;  }
+.paper .video { width:100%; overflow:hidden; padding:5px 0 8px; position:relative;  }
+.paper .video:hover { cursor:pointer; }
+.paper .video .play { display:block; background: url(img/video-play.png) no-repeat center center; width:202px; height:126px; position:absolute; top:5px; left:0; z-index:10; } 
+
+
+
+/******************************************************************************\
+    Visit UCF
+\******************************************************************************/
+.tan   { background:#fdfae1;  }
+.tan .wrap { padding:1.2em; }
+.tan h4 { color:#bf0f0f; padding-top:0; margin-top:0; font-family:arial; font-size:1em; font-weight:bold;}
+.tan ul { margin:0; padding:0 0 0 1.4em; }
+.tan li { margin:0; padding:0; }
+
+/******************************************************************************\
+    Header
+\******************************************************************************/
+#header { border-bottom:1px dotted black; padding-bottom:1em; margin-bottom:1em; }
+#header h1 { height:55px; font-weight:normal; margin:0; padding:0; width:100%; position:relative; color:#313130; font-weight:normal;  }
+#header h1 a { position:absolute;
+	display:block; width:530px; height:37px; top:15px; left:0;
+	text-indent:-5000px; overflow:hidden;
+	background:url('img/remembering.png') no-repeat top left; }
+#header h1 span { font-size:70%; }
+#first-pres { text-indent:-500px; margin:10px 5px 0 0; display:block; position:absolute; top:15px; right:0; overflow:hidden; width:376px; height:25px; background:url('img/ucf-first-president.png') no-repeat top left; }
+
+
+
+/******************************************************************************\
+    Blueprint Fixes / UI tweaks
+\******************************************************************************/
+#UCFHBHeader select { margin:0; padding:0; }
+#UCFHBHeader input.text { margin:0; padding:0; }
+
+
+/******************************************************************************\
+    IE fixes
+\******************************************************************************/
+.ie7 #header h1 { padding-bottom:3px; }
+.ie7 a.ui-button {vertical-align:bottom; padding-bottom:3px; margin-bottom:2px; }
+.ie7 td input.button { top:auto; }
+.ie7 .QAPanel { zoom:1;  }
+
+
+/******************************************************************************\
+	Comment Styles
+\******************************************************************************/
+#leave-a-reply{font-family: "Georgia", serif;}
+#form-section-actions{margin: 15px 0 0 0;}
+#comment{height: 90px; width: 95%;}
+#respond{border-top: 1px dotted #000; padding-top: 30px;}
+#respond.nocomments{border-top: none;}
+.comment-list{list-style-type: none; padding: 0; margin: 30px 0 0 0;}
+.comment-list li{margin-bottom: 25px;}
+.comment-list .comment-content{font-size: 16px; font-family: Georgia, serif; font-style: italic;}
+.comment-list .comment-author{text-align: right;}
+
+
+/******************************************************************************\
+	Flickr Styles
+\******************************************************************************/
+.flickr h2{ margin: 30px 0 15px 0;}
