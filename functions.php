@@ -14,3 +14,5 @@
 	/* Blast you red baron! Initialise WP Framework */
 	require_once( TEMPLATEPATH . '/library/framework.php' );
 	WPFramework::init();
+
+require_once('library/extensions/flickr-highslide.php');
