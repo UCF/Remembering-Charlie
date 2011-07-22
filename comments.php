@@ -24,6 +24,7 @@ if ( post_password_required() ) { ?>
 	$comments = get_comments(array(
 		'number' => ($comments_page) ? null : 5,
 		'order'  => 'DESC',
+		'status' => 'approve',
 	));
 	
 ?>
