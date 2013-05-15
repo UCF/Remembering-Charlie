@@ -11,7 +11,7 @@ get_header();
 			<!--BEGIN #primary .hfeed-->
 			<div id="primary" class="hfeed">
 			<?php if ( have_posts() ) : ?>
-            	<h1 class="page-title search-title">Search Results for: <?php the_post(); echo '<span class="search-term">'. $s .'</span>'; rewind_posts(); ?></h1>
+            	<h1 class="page-title search-title">Search Results for: <?php the_post(); echo '<span class="search-term">'. htmlentities($s) .'</span>'; rewind_posts(); ?></h1>
                 
                 <!--BEGIN #search-query-->
 				<ol id="search-query">
