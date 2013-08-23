@@ -20,17 +20,27 @@ if ( post_password_required() ) { ?>
 
 <?php 
 	$comments_page = isset($_GET['comments']);
-	$limit = ($comments_page) ? -1 : 20;
+	
+	$comments = get_comments(array(
+		'number' => ($comments_page) ? null : 5,
+		'order'  => 'DESC',
+		'status' => 'approve',
+	));
+	
 ?>
 <?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>
     <!--BEGIN .comment-list-->
     <ol class="comment-list">
-		<?php wp_list_comments(array(
-		'per_page' => $limit,
-		'reverse_top_level' => True,
-        'type' => 'comment',
-        'callback' => 'framework_comments_callback',
-        'end-callback' => 'framework_comments_endcallback' )); ?>
+		<?php foreach($comments as $comment):?>
+		<li>
+			<div class="comment-content">
+				<?php comment_text($comment->comment_ID)?>
+			</div>
+			<div class="comment-author">
+				&mdash; <?php comment_author($comment->comment_ID)?>
+			</div>
+		</li>
+		<?php endforeach;?>
     <!--END .comment-list-->
 	<?php $count = framework_count('comment', false);?>
 	<?php if ($count > $limit and !$comments_page):?>

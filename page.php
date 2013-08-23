@@ -32,6 +32,13 @@ $comments_page = isset($_GET['comments']);
 				</div>
 			<!--END .hentry-->
 			</div>
+			
+			<?php if(function_exists('flickr_highslide')):?>
+			<div class="flickr">
+				<h2>Charles Millican Through the Years</h2>
+				<?php flickr_highslide(); ?>
+			</div>
+			<?php endif;?>
 		</div>
 		<?php else:?>
 		<div class="span-8">
