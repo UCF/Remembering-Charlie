@@ -57,7 +57,7 @@ get_header();
 
 				<!--BEGIN #post-0-->
 				<div id="post-0" class="<?php semantic_entries(); ?>">
-					<h2 class="entry-title">Your search for "<?php echo "$s"; ?>" did not match any entries</h2>
+					<h2 class="entry-title">Your search for "<?php echo htmlentities($s); ?>" did not match any entries</h2>
 					
 					<!--BEGIN .entry-content-->
 					<div class="entry-content">
