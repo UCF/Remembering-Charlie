@@ -682,7 +682,7 @@ function flickr_highslide($atts=false){
 				if($options == '13' && $k==0)
 					$imgLink .=	'id="thumb1" ';
 				$imgLink .= 'href="';
-				$imgLink .= "http://static.flickr.com/";
+				$imgLink .= "//static.flickr.com/";
 				$imgLink .= $photoXml->photo[$i]['server'];
 				$imgLink .= "/";
 				$imgLink .= $photoXml->photo[$i]['id'];
@@ -694,7 +694,7 @@ function flickr_highslide($atts=false){
 				else
 					$imgLink .= 'class="highslide" onclick="return hs.expand(this)">';
 				$imgLink .= '<img src="';
-				$imgLink .= "http://static.flickr.com/";
+				$imgLink .= "//static.flickr.com/";
 				$imgLink .= $photoXml->photo[$i]['server'];
 				$imgLink .= "/";
 				$imgLink .= $photoXml->photo[$i]['id'];
