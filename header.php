@@ -28,8 +28,7 @@
 	<![endif]-->
 	
 	<!-- UCF Header and Stylesheets -->
-	<link href="http://universityheader.ucf.edu/bar/css/bar.css" rel="stylesheet" type="text/css">
-	<script src="http://universityheader.ucf.edu/bar/js/university-header.js" type="text/javascript" ></script>
+	<script src="//universityheader.ucf.edu/bar/js/university-header.js" type="text/javascript" ></script>
 	
 	<!-- UCF Web Communications -->
 	<link href="<?php echo CSS . '/style.css'; ?>" rel="stylesheet" type="text/css" media="all">
