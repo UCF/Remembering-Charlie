@@ -1,81 +1,84 @@
+<?php $options = get_option(THEME_OPTIONS_NAME);?>
+<?php if ($options['enable_google'] or $options['enable_google'] === null):?>
 <?php
-/**
- * Template: Search.php
- *
- * @package WPFramework
- * @subpackage Template
- */
-
-get_header();
+	$domain  = $options['search_domain'];
+	$limit   = (int)$options['search_per_page'];
+	$start   = (is_numeric($_GET['start'])) ? (int)$_GET['start'] : 0;
+	$results = get_search_results($_GET['s'], $start, $limit, $domain);
 ?>
-			<!--BEGIN #primary .hfeed-->
-			<div id="primary" class="hfeed">
-			<?php if ( have_posts() ) : ?>
-            	<h1 class="page-title search-title">Search Results for: <?php the_post(); echo '<span class="search-term">'. htmlentities($s) .'</span>'; rewind_posts(); ?></h1>
-                
-                <!--BEGIN #search-query-->
-				<ol id="search-query">
-				<?php while ( have_posts() ) : the_post(); ?>
-
-				<!--BEGIN .hentry-->
-				<li id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?>">
-					<h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
-
-					<!--BEGIN .entry-meta .entry-header-->
-					<div class="entry-meta entry-header">
-						<span class="author vcard">Written by <?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . sprintf( 'View all posts by %s', $authordata->display_name ) . '">' . get_the_author() . '</a>' ) ?></span>
-						<span class="published">on <abbr class="published-time" title="<?php the_time( get_option('date_format') .' - '. get_option('time_format') ); ?>"><?php the_time( get_option('date_format') ); ?></abbr></span>
-						<span class="meta-sep">&mdash;</span>
-						<span class="comment-count"><a href="<?php comments_link(); ?>"><?php comments_number( 'Leave a Comment', '1 Comment', '% Comments' ); ?></a></span>
-						<?php edit_post_link( 'edit', '<span class="edit-post">[', ']</span>' ); ?>
-					<!--END .entry-meta .entry-header-->
-                    </div>
-
-					<!--BEGIN .entry-summary .article-->
-					<div class="entry-summary article">
-						<?php the_excerpt(); ?>
-					<!--END .entry-summary .article-->
-					</div>
-
-					<!--BEGIN .entry-meta .entry-footer-->
-                    <div class="entry-meta entry-footer">
-                    	<span class="entry-categories">Posted in <?php echo framework_get_terms( 'cats' ); ?></span>
-						<?php if ( framework_get_terms( 'tags' ) ) { ?>
-                        <span class="meta-sep">|</span>
-                        <span class="entry-tags">Tagged <?php echo framework_get_terms( 'tags' ); ?></span>
-                        <?php } ?>
-					<!--END .entry-meta .entry-footer-->
-                    </div>
-				<!--END .hentry-->
-				</li>
-
-				<?php endwhile; ?>
-                <!--END #search-query-->
-				</ol>
-				<?php include ( TEMPLATEPATH . '/navigation.php' ); ?>
-				<?php else : ?>
-
-				<!--BEGIN #post-0-->
-				<div id="post-0" class="<?php semantic_entries(); ?>">
-					<h2 class="entry-title">Your search for "<?php echo htmlentities($s); ?>" did not match any entries</h2>
+<?php get_header(); ?>
+	<div class="row page-content" id="search-results">
+		<div class="span9">
+			<article>
+				<h1>Search Results</h1>
+				<?php if(count($results['items'])):?>
+				<ul class="result-list">
+					<?php foreach($results['items'] as $result):?>
+					<li class="item">
+						<h3>
+							<a class="<?=mimetype_to_application(($result['mime']) ? $result['mime'] : 'text/html')?>" href="<?=$result['url']?>">
+								<?php if($result['title']):?>
+								<?=$result['title']?>
+								<?php else:?>
+								<?=substr($result['url'], 0, 45)?>...
+								<?php endif;?>
+							</a>
+						</h3>
+						<a href="<?=$result['url']?>" class="ignore-external url sans"><?=$result['url']?></a>
+						<div class="snippet">
+							<?=str_replace('<br>', '', $result['snippet'])?>
+						</div>
+					</li>
+				<?php endforeach;?>
+				</ul>
+			
+				<?php if($start + $limit < $results['number']):?>
+				<a class="button more" href="./?s=<?=$_GET['s']?>&amp;start=<?=$start + $limit?>">More Results</a>
+				<?php endif;?>
+				
+				<?php else:?>
 					
-					<!--BEGIN .entry-content-->
-					<div class="entry-content">
-						<?php get_search_form(); ?>
-						<p>Suggestions:</p>
-						<ul>
-							<li>Make sure all words are spelled correctly.</li>
-							<li>Try different keywords.</li>
-							<li>Try more general keywords.</li>
-						</ul>
-					<!--END .entry-content-->
-					</div>
-				<!--END #post-0-->
-				</div>
+				<p>No results found for "<?=htmlentities($_GET['s'])?>".</p>
+				
+				<?php endif;?>
+			</article>
+		</div>
+		
+		<div id="sidebar" class="span3">
+			<?=get_sidebar();?>
+		</div>
+	</div>
+	<?php get_template_part('includes/below-the-fold'); ?>
+<?php get_footer();?>
 
-			<?php endif; ?>
-			<!--END #primary .hfeed-->
-			</div>
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php else:?>
+<?php get_header(); the_post();?>
+	<div class="row page-content" id="search-results">
+		<div class="span9">
+			<article>
+				<h1>Search Results</h1>
+				<?php if(have_posts()):?>
+					<ul class="result-list">
+					<?php while(have_posts()): the_post();?>
+						<li class="item">
+							<h3><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
+							<a href="<?php the_permalink();?>"><?php the_permalink();?></a>
+							<div class="snippet">
+								<?php the_excerpt();?>
+							</div>
+						</li>
+					<?php endwhile;?>
+					</ul>
+				<?php else:?>		
+					<p>No results found for "<?=htmlentities($_GET['s'])?>".</p>
+				<?php endif;?>
+			</article>
+		</div>
+		
+		<div id="sidebar" class="span3">
+			<?=get_sidebar();?>
+		</div>
+	</div>
+	<?php get_template_part('includes/below-the-fold'); ?>
+<?php get_footer();?>
+<?php endif;?>

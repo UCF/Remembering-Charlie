@@ -1,6 +1,9 @@
-<?php disallow_direct_load('single.php');?>
+<?php
+/**
+ * Template Name: Two Column
+ **/
+?>
 <?php get_header(); the_post();?>
-	
 	<div class="row page-content" id="<?=$post->post_name?>">
 		<div class="span9">
 			<article>
@@ -15,7 +18,9 @@
 			<?=get_sidebar();?>
 		</div>
 	</div>
-		
-	<?php get_template_part('includes/below-the-fold'); ?>
-
+	<?
+	if(get_post_meta($post->ID, 'page_hide_fold', True) != 'on'): 
+		get_template_part('includes/below-the-fold'); 
+	endif
+	?>
 <?php get_footer();?>

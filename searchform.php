@@ -1,14 +1,7 @@
-<?php
-/**
- * Template: Searchform.php
- *
- * @package WPFramework
- * @subpackage Template
- */
-?>
-<!--BEGIN #searchform-->
-<form class="searchform" method="get" action="<?php bloginfo( 'url' ); ?>">
-	<input class="search" name="s" type="text" value="Search..." tabindex="1" />
-    <button class="search-btn" type="submit" tabindex="2">Search</button>
-<!--END #searchform-->
+<form role="search" method="get" class="search-form" action="<?=home_url( '/' )?>">
+	<div>
+		<label for="s">Search:</label>
+		<input type="text" value="<?=htmlentities($_GET['s'])?>" name="s" class="search-field" id="s" placeholder="Enter your search term here..." />
+		<button type="submit" class="search-submit">Search</button>
+	</div>
 </form>

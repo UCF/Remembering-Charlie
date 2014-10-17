@@ -1,70 +1,70 @@
-<?php
-/**
- * Template: Header.php 
- *
- * @package WPFramework
- * @subpackage Template
- */
-?><!DOCTYPE HTML>
-<html <?php language_attributes(); ?>>
-<head>
-	<title>Remembering Dr. Millican (1916-2010)</title>
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<?="\n".header_()."\n"?>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--[if IE]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<?php if(GA_ACCOUNT or CB_UID):?>
 
-	<meta charset="<?php bloginfo('charset'); ?>">
-	<meta name="description" content="<?php bloginfo( 'description' ) ?>" />
-	<link rel="shortcut icon" href="<?php echo IMAGES . '/favicon.ico'; ?>" />
-	
-	<!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	
-	<!-- jquery: core, UI, plugins, uniform -->
-	<script src="<?php echo JS . '/jquery/js/jquery-1.4.2.min.js'; ?>" type="text/javascript"></script>
-	<script src="<?php echo JS . '/jquery/plugins/browser.js'; ?>" type="text/javascript"></script>
-	
-	<!-- blueprint css -->
-	<link href="<?php echo CSS . '/blueprint/screen.css';?>" type="text/css" rel="stylesheet" media="screen, projection">
-	<link href="<?php echo CSS . '/blueprint/print.css';?>" type="text/css" rel="stylesheet" media="print">
-	<!--[if lt IE 8]>
-	<link href="<?php echo CSS . '/blueprint/ie.css")';?>" type="text/css" rel="stylesheet" media="screen, projection">
-	<![endif]-->
-	
-	<!-- UCF Header and Stylesheets -->
-	<script src="//universityheader.ucf.edu/bar/js/university-header.js" type="text/javascript" ></script>
-	
-	<!-- UCF Web Communications -->
-	<link href="<?php echo CSS . '/style.css'; ?>" rel="stylesheet" type="text/css" media="all">
-	<script src="<?php echo JS . '/script.js'; ?>" type="text/javascript"></script>
-	
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen, projection" />
-	
-  	<!-- Links: RSS + Atom Syndication -->
-	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?> RSS Feed" href="<?php bloginfo( 'rss2_url' ); ?>" />
-	<link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo( 'rss_url' ); ?>" />
-	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo( 'atom_url' ); ?>" />
+		<script type="text/javascript">
+			var _sf_startpt = (new Date()).getTime();
+			<?php if(GA_ACCOUNT):?>
 
-	<!-- Theme Hook -->
-    <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); // loads the javascript required for threaded comments ?>
-	<?php wp_head(); ?>
+			var GA_ACCOUNT  = '<?=GA_ACCOUNT?>';
+			var _gaq        = _gaq || [];
+			_gaq.push(['_setAccount', GA_ACCOUNT]);
+			_gaq.push(['_setDomainName', 'none']);
+			_gaq.push(['_setAllowLinker', true]);
+			_gaq.push(['_trackPageview']);
+			<?php endif;?>
+			<?php if(CB_UID):?>
 
-<!--END head-->
-</head>
+			var CB_UID      = '<?=CB_UID?>';
+			var CB_DOMAIN   = '<?=CB_DOMAIN?>';
+			<?php endif?>
 
-<!--BEGIN body-->
-<body class="<?php semantic_body(); ?>">
-	
-	<!--BEGIN #wrap -->
-	<div id="wrap">
-
-		
-		<!-- Header -->
-		<div class="span-24 last" id="header">
-			<h1><a href="<?php bloginfo( 'url' ); ?>">Remembering Dr. Millican <span>(1916-2010)</span></a> <span id="first-pres">UCF&rsquo;s first president : 1965-1978</span></h1>
-		</div><!-- /header -->
-		
-		<!--BEGIN content container -->
-		<div class="span-24 last">
-		
-		<?php $comments_page = isset($_GET['comments']);?>
-		<?php if(!$comments_page):?>
-		<img class="centerpiece" src="<?php echo IMAGES . '/Dr-Millican.png'; ?>" alt="Dr. Millican">
+		</script>
 		<?php endif;?>
+
+		<?  $post_type = get_post_type($post->ID);
+			if(($stylesheet_id = get_post_meta($post->ID, $post_type.'_stylesheet', True)) !== False
+				&& ($stylesheet_url = wp_get_attachment_url($stylesheet_id)) !== False) { ?>
+				<link rel='stylesheet' href="<?=$stylesheet_url?>" type='text/css' media='all' />
+		<? } ?>
+
+		<script type="text/javascript">
+			var PostTypeSearchDataManager = {
+				'searches' : [],
+				'register' : function(search) {
+					this.searches.push(search);
+				}
+			}
+			var PostTypeSearchData = function(column_count, column_width, data) {
+				this.column_count = column_count;
+				this.column_width = column_width;
+				this.data         = data;
+			}
+		</script>
+
+	</head>
+	<body class="<?=body_classes()?>">
+		<div class="container">
+			<div class="row">
+				<div class="row-border-bottom-top" id="header">
+					<?php $options = get_option(THEME_OPTIONS_NAME); ?>
+					<h1 class="span12"><a href="<?=bloginfo('url')?>"><?=bloginfo('name')?> <?php if($options["years_lived"]): ?><span class="years-lived">(<?=$options["years_lived"]?>)</span><? endif; ?></a> <span id="tagline"><?=bloginfo('description')?></span></h1>
+				</div>
+			</div>
+			<?php
+			if (has_nav_menu('header-menu')) {
+			wp_nav_menu(array(
+				'theme_location' => 'header-menu',
+				'container' => 'false',
+				'menu_class' => 'menu '.get_header_styles(),
+				'menu_id' => 'header-menu',
+				'walker' => new Bootstrap_Walker_Nav_Menu()
+				));
+			}
+			?>

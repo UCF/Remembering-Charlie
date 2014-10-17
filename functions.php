@@ -1,18 +1,12 @@
 <?php
-/**
- * Functions - Framework gatekeeper
- *
- * This file defines a few constants variables, loads up the core framework file, 
- * and finally initialises the main WP Framework Class.
- *
- * @package WPFramework
- * @subpackage Functions
- */
+require_once('functions/base.php');   			# Base theme functions
+require_once('functions/feeds.php');			# Where functions related to feed data live
+require_once('custom-taxonomies.php');  		# Where per theme taxonomies are defined
+require_once('custom-post-types.php');  		# Where per theme post types are defined
+require_once('functions/admin.php');  			# Admin/login functions
+require_once('functions/config.php');			# Where per theme settings are registered
+require_once('shortcodes.php');         		# Per theme shortcodes
 
-	define( 'WP_FRAMEWORK', '0.2.4' ); // Defines current version for WP Framework
-	
-	/* Blast you red baron! Initialise WP Framework */
-	require_once( TEMPLATEPATH . '/library/framework.php' );
-	WPFramework::init();
+//Add theme-specific functions here.
 
-require_once('library/extensions/flickr-highslide.php');
+?>
