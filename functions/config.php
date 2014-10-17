@@ -111,11 +111,8 @@ define('CB_DOMAIN', $theme_options['cb_domain']);
  * object.
  **/
 Config::$custom_post_types = array(
-	'Video',
-	'Document',
 	'Publication',
 	'Page',
-	'Person',
 	'Post'
 );
 
@@ -216,7 +213,7 @@ Config::$theme_settings = array(
 								See the <a target="_blank" href="http://www.typography.com/cloud/user-guide/managing-domains">Cloud.Typography docs on managing domains</a> for more info.',
 			'default'     => '//cloud.typography.com/730568/806386/css/fonts.css', /* CSS Key relative to PROD project */
 			'value'       => $theme_options['cloud_font_key'],
-		))
+		)),
 	),
 );
 
