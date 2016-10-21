@@ -10,22 +10,38 @@
 if ( !empty( $_SERVER[ 'SCRIPT_FILENAME' ] ) && 'comments.php' == basename( $_SERVER[ 'SCRIPT_FILENAME' ] ) )
 	die ( 'Please do not load this page directly. Thanks!' );
 
-if ( post_password_required() ) { ?>
+if ( post_password_required() ) {
+?>
 	<p class="password-protected alert">This post is password protected. Enter the password to view comments.</p>
-<?php return; } ?>
+<?php
+	return;
+}
 
-<?php if ( have_comments() ) : // If comments exist for this entry, continue ?>
+
+$success_message = isset( $_GET['comment-success'] );
+if ( $success_message ):
+?>
+<!-- BEGIN comment success message -->
+<div class="comment-notification alert alert-success">
+	<p>Thank you for submitting your message.</p>
+</div>
+<!-- END comment success message -->
+<?php
+endif;
+
+
+if ( have_comments() ) : // If comments exist for this entry, continue ?>
 <!--BEGIN #comments-->
 <div id="comments">
 
 <?php
-	$comments_page = isset($_GET['comments']);
+$comments_page = isset($_GET['comments']);
 
-	$comments = get_comments(array(
-		'number' => ($comments_page) ? null : 5,
-		'order'  => 'DESC',
-		'status' => 'approve',
-	));
+$comments = get_comments(array(
+	'number' => ($comments_page) ? null : 5,
+	'order'  => 'DESC',
+	'status' => 'approve',
+));
 
 ?>
 <?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>
