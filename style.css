@@ -217,7 +217,7 @@ p {
     text-align: right;
 }
 
-#leave-a-reply {
+#reply-title {
     font-family: "Georgia", serif;
     font-size: 18px;
     font-weight: normal;
@@ -225,4 +225,21 @@ p {
 
 #comment-form label {
     display: inline;
+}
+
+
+/* Copied from Bootstrap 3: */
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.required {
+  display: none;
 }

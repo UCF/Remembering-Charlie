@@ -9,4 +9,17 @@ require_once('shortcodes.php');         		# Per theme shortcodes
 
 //Add theme-specific functions here.
 
+
+/**
+ * Modifies default fields in comment_form() output.
+ **/
+function modified_comment_form_fields( $fields ) {
+	if ( isset( $fields['url'] ) ) {
+		unset( $fields['url'] );
+	}
+	return $fields;
+}
+add_filter( 'comment_form_default_fields', 'modified_comment_form_fields' );
+
+
 ?>
